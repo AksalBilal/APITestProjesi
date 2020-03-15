@@ -63,7 +63,7 @@ Nunit console kullanarak projeyi çalıştırmadan komut satırından testleri k
     C:\Users\bilal\Downloads\Compressed\NUnit.Console-3.11.1\bin\net35\nunit3-console.exe C:\Users\bilal\OneDrive\Masaüstü\TechTestAPI\TechTestAPI\bin\Debug\TechTestAPI.dll --params=allureCleanUpType=false
 Son bölümdeki allureCleanUpType bölümünün sebebi de her koşma başlamadan önce eski allure loglarını silmek istediğiniz zaman true yapınca eski kayıtları silerek yeniden oluşturur.
  Bu parametreler isteğe göre eklenip çoğaltılabilir...
-Komut satırına girdikten sonra caseler koşmaya başlar ve tamamlandığı zaman yine komut satırı üzerinden size sonuçları gösterir. Daha detaylı bilgi almak isterseniz de komut satırını çalıştırdığınız konuma('C:\Users\UserName' olur genelde) 'TestResult.xml' isimli bir xml dosyası oluşturur. Buradan detaylı inceleyebilirsiniz.
+Komut satırına girdikten sonra caseler koşmaya başlar ve tamamlandığı zaman yine komut satırı üzerinden size sonuçları gösterir. Daha detaylı bilgi almak isterseniz de komut satırını çalıştırdığınız konuma('C:\Users\UserName' olur genelde) 'TestResult.xml' isimli bir xml dosyası oluşturur. [Buradan](https://nunit.org/docs/2.6.2/nunit-console.html "Buradan") detaylı inceleyebilirsiniz.
 
 ## Örnek Ekran Çıktıları
  - **Nunit console örnek ekran çıktıları**
