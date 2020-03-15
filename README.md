@@ -1,9 +1,5 @@
 # APITestProjesi
-Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API Test projesi oluşturdum. Test sonuclarının loglanması için log4net, monitoring edilmesi için de allure yapısını kullandım.
-# TechTestAPI Projesi
-[TOC]
-
- Yazılmış olan API ların girilen parametrelere göre doğru çıktıyı verip vermediğinin kontrollerinin yapıldığı ve bunların yönetilmesini sağlayan monitoring ve logging yardımıyla çok amaçlı olarak isteğe göre değiştirilebilir bir otomasyon projesidir.
+Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API Test projesi oluşturdum. Test sonuclarının loglanması için log4net, monitoring edilmesi için de allure yapısını kullandım. Bu Proje Yazılmış olan API ların girilen parametrelere göre doğru çıktıyı verip vermediğinin kontrollerinin yapıldığı ve bunların yönetilmesini sağlayan monitoring ve logging yardımıyla çok amaçlı olarak isteğe göre değiştirilebilir bir projedir.
  ## Kullanılan Teknolojiler
 - **C#** (Proje de tam olarak istediğim yapıyı kurabilmem için bu dili tercih ettim);
 - **Nunit3 **(Test Caselerin yazılması ve çıktıların kontrollerinde kullandım);
