@@ -2,17 +2,19 @@
 Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API Test projesi oluşturdum. Test sonuclarının loglanması için log4net, monitoring edilmesi için de allure yapısını kullandım. Bu Proje Yazılmış olan API ların girilen parametrelere göre doğru çıktıyı verip vermediğinin kontrollerinin yapıldığı ve bunların yönetilmesini sağlayan monitoring ve logging yardımıyla çok amaçlı olarak isteğe göre değiştirilebilir bir projedir.
  ## Kullanılan Teknolojiler
 - **C#** (Proje de tam olarak istediğim yapıyı kurabilmem için bu dili tercih ettim);
-- **Nunit3 **(Test Caselerin yazılması ve çıktıların kontrollerinde kullandım);
-- ** RestSharp** (Case de yer alan API ye istek atılmak için kullandım);
+- **Nunit3**(Test Caselerin yazılması ve çıktıların kontrollerinde kullandım);
+- **RestSharp** (Case de yer alan API ye istek atılmak için kullandım);
 - **Newton.Json** (Json ların serialization-deserialization dönüşüm işlemlerinde kullandım);
 - **Allure** (Test Sonuclarının monitorize edilmesinde kullandım);
 - **Log4Net** (Hata sonuclarının loglanmasında kullandım);
 - **Nunit-Console** (Yazılmış olan test senaryolarını console üzerinden koşturup sonuçlarını takip etmek için kullandım);
 
 
- ##Proje Yapısının Açıklaması
+## Proje Yapısının Açıklaması
  Proje de alttaki yapıyı kullandım. Her başlığın ne için açıldığı nerde kullanıldığını altta açıklıyorum.
+ 
  ![image](https://user-images.githubusercontent.com/46024317/76700854-b8eb2080-66cc-11ea-8a1d-2bc8fa987853.png)
+ 
   - Base: Genel olarak kod içerisinde fazla kullanılacağını düşündüğüm kod yapılarının tekrarını önlemek için tek bir yerden oluşturup yönetimi kolaylaştırdım. İçinde request ve response isteklerinin yapıldığı 'RestHttpClient' isimli bir sınıf ve tüm test caseleri koşmadan önce sistemi ilk ayağa kaldıran 'BaseClass' isimli bir sınıfımız var.
 - RestHttpClient: Yapılacak olan http isteklerini tek bir yerden yazıp yönetmek.
 - BaseClass: Sistemi ayağa kaldıracak ve kapatacak ana kontrolcü gibi düşünülebilir. Caseler koşmadan önce BaseClass tan allure yapısı tetikleniyor. Testler koştuktan sonra da log yapısı tetikleniyor. Bu yapıyı kullanarak ilerde eklemeler olunca genel sistemde değişikler yapmayıp burdan kolaylıkla yapılmasını sağlayacağını düşündüğüm için ekledim.
@@ -21,7 +23,7 @@ Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API
    - Logger: Belirli bir path içerisine gönderilen mesajların eklenmesini sağlayan methodu içeriyor.
    - JsonConverter: İçerisinde serialization-deserialization dönüşümlerini yapan methodlar bulunuyor.
    
-- Logs: **Bu yapının normalde burda olmaması gerekiyor.** Sadece log ve allure çıktılarını gösterebilmek için ekledim. İstenilen bir klasörün path i verilerek log ve allure kayıtlarını istediğiniz path e kaydedebilirsiniz.
+- Logs: **Bu klasörün normalde burda olmaması gerekiyor.** Sadece log ve allure çıktılarını gösterebilmek için ekledim. İstenilen bir klasörün path i verilerek log ve allure kayıtlarını istediğiniz path e kaydedebilirsiniz.
 
 - Models: API ye istek atarken bu isteklerin bir sınıf biçiminde olması gerekiyor. Genel olarak bu sınıfların ve bu sınıflar ile ilgili methodların yer aldığı klasördür. Bu klasörün içerisi projeye göre genişletilmelidir. Örneğin Test Suites altında Create, Update veya Search adında klasörler açıp her başlığa göre ilgili sınıfları ilgili başlık altında açmalıyız.
   - SearchResponse: Senaryoya göre  By Search yapısı kullanıldığı zaman dönen sonucların karşılığı olan sınıf yapısıdır. Search Response içerisinde dönen datalar içerisinde title a göre arama yapmamı sağlayan bir method da bulunuyor.
@@ -37,21 +39,23 @@ Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API
 ![image](https://user-images.githubusercontent.com/46024317/76701471-8e03cb00-66d2-11ea-81fb-848fbd445811.png)
 Burda da örnek olarak 2 tane hata mesajını görebilirsiniz. ilk sutün da projede cağrılan ismi, 2. sütunda içeriğini ve son sütunda da açıklamasını görebilirsiniz.
 
-##Projenin Ayağa Kaldırılması
+## Projenin Ayağa Kaldırılması
 1. İlk olarak projede Allure monitoring tool kullanıldığı için bilgisayarınızda allure yüklü olmaldır. [Buradan](https://docs.qameta.io/allure/ "Buradan") indirebilirsiniz.
-2. Allure çıktılarının kaydedileceği path i de kendinize göre ayarlamak için projede bulunan app.config dosyası içerisinden 'AllureLogsPath' key li değerin value sini kendi istediğiniz path ile değiştirin. 
-**Not**: Bu path içinde "allure-results" isimli bir klasör olması gerekiyor.
+2. Allure çıktılarının kaydedileceği path i de kendinize göre ayarlamak için projede bulunan app.config dosyası içerisinden 'AllureLogsPath' key li değerin value sini kendi istediğiniz path ile değiştirin.
+
+	**Not**: Bu path içinde "allure-results" isimli bir klasör olması gerekiyor.
+
 3. Log çıktılarının kaydedileceği path i de kendinize göre ayarlamak için yine projede bulunan app.config dosyası içerisinden log4net tag i içerisindeki file value yi kendinize göre ayarlayın.
-4. (Opsiyonel) Projeyi açmadan console üzerinden çalıştırmak için nunit-console indirmeniz gerekiyor. [Buradan](https://github.com/nunit/nunit-console/releases/tag/v3.11.1 "Buradan") indirebilirsiniz. 
+4. (**Opsiyonel**) Projeyi açmadan console üzerinden çalıştırmak için nunit-console indirmeniz gerekiyor. [Buradan](https://github.com/nunit/nunit-console/releases/tag/v3.11.1 "Buradan") indirebilirsiniz. 
 Bunları yaptıktan sonra clean project ardından da rebuild yaptıktan sonra test caseleri koşturduğunuz zaman bir hata almamanız gerekiyor.
 
-##Allure Monitoring Tool Kullanımı
+## Allure Monitoring Tool Kullanımı
 Allure yapısı caseler her tamamlandıktan sonra belirtilen path e kaydediliyor. Bunları görüntülemek için komut satırını açıp "allure serve [config dosyasında ayarladığınız path]\allure-results" girerseniz browserda açılan pencere üzerinde detaylı inceleme yapabilirsiniz.
 Örnek komut: 
 
     allure serve C:\Users\bilal\OneDrive\Masaüstü\TechTestAPI\TechTestAPI\Logs\AllureLogs\allure-results
 
-##Nunit-Console Kullanımı
+## Nunit-Console Kullanımı
 Nunit console kullanarak projeyi çalıştırmadan komut satırından testleri koşturup sonuçları görmek isterseniz komut satırını açıp "[nunitconsole.exe path] [test projesinin dll pathi("bin\debug" içerisinde bulunur)] --params=allureCleanUpType=false" seklinde komut girerek testleri koşturabilirsiniz.
 
 Örnek Komut: 
@@ -61,7 +65,7 @@ Son bölümdeki allureCleanUpType bölümünün sebebi de her koşma başlamadan
  Bu parametreler isteğe göre eklenip çoğaltılabilir...
 Komut satırına girdikten sonra caseler koşmaya başlar ve tamamlandığı zaman yine komut satırı üzerinden size sonuçları gösterir. Daha detaylı bilgi almak isterseniz de komut satırını çalıştırdığınız konuma('C:\Users\UserName' olur genelde) 'TestResult.xml' isimli bir xml dosyası oluşturur. Buradan detaylı inceleyebilirsiniz.
 
-##Örnek Ekran Çıktıları
+## Örnek Ekran Çıktıları
  - Nunit console örnek ekran çıktıları
       - Succes Durumu:
 	      ![image](https://user-images.githubusercontent.com/46024317/76702582-d8d61080-66db-11ea-80df-042862eba606.png)
@@ -80,4 +84,4 @@ Komut satırına girdikten sonra caseler koşmaya başlar ve tamamlandığı zam
   
      - Daha önceki sonuçlarını Retries bölümünden görebilirsiniz:![image](https://user-images.githubusercontent.com/46024317/76702886-77fc0780-66de-11ea-8819-0ac32e7d18cb.png)
   
-  Yukarıdaki ekranlar dışında allure tool unun daha birçok özelliği  bulunmaktadır. Detaylı bilgi almak için [burdan](https://docs.qameta.io/allure/#_report_structure "burdan") bakabilirsiniz.
+  Yukarıdaki ekranlar dışında allure tool unun daha birçok özelliği  bulunmaktadır. Detaylı bilgi almak [buraya](https://docs.qameta.io/allure/#_report_structure "burdan") bakabilirsiniz.
