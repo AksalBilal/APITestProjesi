@@ -11,7 +11,7 @@ Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API
 
 
 ## Proje Yapısının Açıklaması
- Proje de alttaki yapıyı kullandım. Her başlığın ne için açıldığı nerde kullanıldığını altta açıklıyorum.
+ Proje de alttaki yapıyı kullandım. Her başlığın ne için açıldığını ve ne zaman kullanıldığını altta açıklıyorum.
  
  ![image](https://user-images.githubusercontent.com/46024317/76700854-b8eb2080-66cc-11ea-8a1d-2bc8fa987853.png)
  
