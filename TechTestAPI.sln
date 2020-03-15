@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTestAPI", "TechTestAPI\TechTestAPI.csproj", "{DF7DDCC4-B65A-4C7F-9A1E-01F303D217E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF7DDCC4-B65A-4C7F-9A1E-01F303D217E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7DDCC4-B65A-4C7F-9A1E-01F303D217E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7DDCC4-B65A-4C7F-9A1E-01F303D217E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7DDCC4-B65A-4C7F-9A1E-01F303D217E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15F91309-D74D-44C0-AED9-204D51113149}
+	EndGlobalSection
+EndGlobal
