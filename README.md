@@ -15,9 +15,9 @@ Restsharp, Allure ve Log4Net framework kullanarak birkaç senaryo üzerinden API
  
  ![image](https://user-images.githubusercontent.com/46024317/76700854-b8eb2080-66cc-11ea-8a1d-2bc8fa987853.png)
  
-  - **Base**: Genel olarak kod içerisinde fazla kullanılacağını düşündüğüm kod yapılarının tekrarını önlemek için tek bir yerden oluşturup yönetimi kolaylaştırdım. İçinde request ve response isteklerinin yapıldığı 'RestHttpClient' isimli bir sınıf ve tüm test caseleri koşmadan önce sistemi ilk ayağa kaldıran 'BaseClass' isimli bir sınıfımız var.
-- **RestHttpClient**: Yapılacak olan http isteklerini tek bir yerden yazıp yönetmek.
-- **BaseClass**: Sistemi ayağa kaldıracak ve kapatacak ana kontrolcü gibi düşünülebilir. Caseler koşmadan önce BaseClass tan allure yapısı tetikleniyor. Testler koştuktan sonra da log yapısı tetikleniyor. Bu yapıyı kullanarak ilerde eklemeler olunca genel sistemde değişikler yapmayıp burdan kolaylıkla yapılmasını sağlayacağını düşündüğüm için ekledim.
+  - **Base**: Genel olarak kod içerisinde fazla kullanılacağını düşündüğüm kod yapılarının tekrarını önlemek için tek bir yerden oluşturup yönetimi kolaylaştırdım. Suan icerisinde 'RestHttpClient' ve 'BaseClass' isimli sınıflarimiz var.
+     - RestHttpClient: Yapılacak olan http isteklerini tek bir yerden yazıp yönetmek.
+     - BaseClass: Sistemi ayağa kaldıracak ve kapatacak ana kontrolcü gibi düşünülebilir. Caseler koşmadan önce BaseClass tan allure yapısı tetikleniyor. Testler koştuktan sonra da log yapısı tetikleniyor. Bu yapıyı kullanarak ilerde eklemeler olunca genel sistemde değişikler yapmayıp burdan kolaylıkla yapılmasını sağlayacağını düşündüğüm için ekledim.
 
 - **Helpers**: Sistemde birden fazla yerde kullanılacağını düşündüğüm metodları bu klasör altında topladım. Böylelikle kod tekrarını önleyip okunaklığı arttırdığını düşündüm. Küçük bir proje olduğu için şuan icerisinde Logger ve JsonConverter sınıfı var.
    - Logger: Belirli bir path içerisine gönderilen mesajların eklenmesini sağlayan methodu içeriyor.
